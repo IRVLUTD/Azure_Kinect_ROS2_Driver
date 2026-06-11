@@ -13,7 +13,7 @@
 // Library headers
 //
 #include <angles/angles.h>
-#include <cv_bridge/cv_bridge.h>
+#include <cv_bridge/cv_bridge.hpp>
 #include <k4a/k4a.hpp>
 
 //#include <sensor_msgs/distortion_models.hpp>
@@ -1069,7 +1069,7 @@ void K4AROS2Device::framePublisherThread()
     if (process_cloud_ && pointcloud_publisher_->get_subscription_count() > 0 &&
         (k4a_device_ || (capture.get_color_image() != nullptr && capture.get_depth_image() != nullptr)))
     {
-    
+
       RCLCPP_DEBUG(this->get_logger(), "Processing point cloud...");
       if (this->get_parameter("rgb_point_cloud").as_bool())
       {
